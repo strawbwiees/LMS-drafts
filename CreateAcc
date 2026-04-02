@@ -1,0 +1,149 @@
+package library;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import javax.swing.JButton;
+
+public class CreateAcc extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+
+	/**
+	 * Launch the application.
+	 */
+	 public static void main(String[] args) throws ClassNotFoundException, SQLException{
+	    	
+	    	Class.forName("com.mysql.cj.jdbc.Driver");
+	    	
+	    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LibraryManagement","root","hoshi060222");
+	    	System.out.println("connection oki");
+	    	
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CreateAcc frame = new CreateAcc();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public CreateAcc() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 739, 572);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(94, 48, 35));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(243, 233, 220));
+		panel.setBounds(0, 0, 267, 535);
+		contentPane.add(panel);
+		
+		textField = new JTextField();
+		textField.setBounds(461, 171, 202, 18);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("CREATE AN ACCOUNT");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setBounds(394, 90, 220, 34);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("NAME");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(317, 169, 88, 21);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("ID NUMBER");
+		lblNewLabel_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1_1.setBounds(317, 200, 88, 21);
+		contentPane.add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("EMAIL ADDRESS");
+		lblNewLabel_1_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1_1_1.setBounds(317, 231, 121, 21);
+		contentPane.add(lblNewLabel_1_1_1);
+		
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("CONTACT NUMBER");
+		lblNewLabel_1_1_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1_1_1_1.setBounds(317, 262, 132, 21);
+		contentPane.add(lblNewLabel_1_1_1_1);
+		
+		JLabel lblNewLabel_1_1_1_2 = new JLabel("CREATE USERNAME");
+		lblNewLabel_1_1_1_2.setForeground(Color.WHITE);
+		lblNewLabel_1_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1_1_1_2.setBounds(317, 293, 147, 21);
+		contentPane.add(lblNewLabel_1_1_1_2);
+		
+		JLabel lblNewLabel_1_1_1_3 = new JLabel("CREATE PASSWORD");
+		lblNewLabel_1_1_1_3.setForeground(Color.WHITE);
+		lblNewLabel_1_1_1_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1_1_1_3.setBounds(317, 324, 147, 21);
+		contentPane.add(lblNewLabel_1_1_1_3);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(461, 202, 202, 18);
+		contentPane.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(461, 233, 202, 18);
+		contentPane.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(461, 264, 202, 18);
+		contentPane.add(textField_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(461, 295, 202, 18);
+		contentPane.add(textField_4);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(461, 326, 202, 18);
+		contentPane.add(textField_5);
+		
+		JButton btnNewButton = new JButton("CREATE");
+		btnNewButton.setBounds(579, 376, 84, 20);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("CLEAR");
+		btnNewButton_1.setBounds(472, 376, 84, 20);
+		contentPane.add(btnNewButton_1);
+
+	}
+}
