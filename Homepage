@@ -1,8 +1,10 @@
 package library;
 
 import java.awt.EventQueue;
-
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -133,6 +135,39 @@ public class Homepage extends JFrame {
 		LogOut.setBounds(22, 433, 130, 19);
 		panel.add(LogOut);
 		
+		
+		// Add mouse listener to LogOut label
+				LogOut.addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent e) {
+						// Ask for confirmation
+						int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Confirm Logout", JOptionPane.YES_NO_OPTION);
+						
+						if (confirm == JOptionPane.YES_OPTION) {
+							// Show logout message
+							JOptionPane.showMessageDialog(null, "You have been logged out successfully!");
+							
+							// Close current homepage
+							dispose();
+							
+							// Open Login page
+							LogIn login = new LogIn();
+							login.setVisible(true);
+						}
+					}
+					
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						LogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+						LogOut.setForeground(new Color(255, 200, 200));
+					}
+					
+					@Override
+					public void mouseExited(MouseEvent e) {
+						LogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+						LogOut.setForeground(Color.WHITE);
+					}
+				});
+		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setForeground(new Color(243, 233, 220));
 		panel_1_1.setBackground(new Color(225, 214, 201));
@@ -152,10 +187,10 @@ public class Homepage extends JFrame {
 		AddBook.setForeground(new Color(255, 255, 255));
 		AddBook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				// Replace 'AddBookDialog' with the actual name of your Dialog file
 				AddBookDialog dialog = new AddBookDialog();
 
-				
+				// This makes the pop-up appear on top of your homepage
 				dialog.setLocationRelativeTo(null);
 				dialog.setVisible(true);
 			}
